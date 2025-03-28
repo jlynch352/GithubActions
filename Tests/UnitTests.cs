@@ -56,8 +56,9 @@ public class MultiplicationTests
             Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
         }
     }
- [TestClass]
-    public class SubtractionTests
+
+[TestClass]
+public class SubtractionTests
     {
         [TestMethod]
         public void Subtract_Valid()
@@ -84,9 +85,9 @@ public class MultiplicationTests
         }
     }
 
-    [TestClass]
-    public class DivisionTests
-    {
+[TestClass]
+public class DivisionTests
+	{
         [TestMethod]
         public void Divide_Valid()
         {
@@ -120,8 +121,8 @@ public class MultiplicationTests
         }
     }
 
-    [TestClass]
-    public class PowerTests
+[TestClass]
+public class PowerTests
     {
         [TestMethod]
         public void Power_Valid()
