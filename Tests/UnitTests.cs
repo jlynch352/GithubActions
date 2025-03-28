@@ -15,7 +15,7 @@ public class Addition
 	public void Add_Invalid_Patino()
 	{
 		Assert.ThrowsException<FormatException>(() => Program.Add("1", "a"));
-		Assert.ThrowsException<FormatException>(() => Program.Add("a", "1"));
+		Assert.ThrowsException<FormatException>(() => Program.Add("1", "1"));
 		Assert.ThrowsException<FormatException>(() => Program.Add("a", "a"));
 	}
 
