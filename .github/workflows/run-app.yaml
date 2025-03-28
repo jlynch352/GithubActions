@@ -1,17 +1,1 @@
-name: 'Run App Lynch, James'
 
-on: [push, pull_request]
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: install dotnet
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
-      - name: build
-        run: dotnet build
-      - name: run unit tests
-        run: dotnet test
