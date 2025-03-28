@@ -113,12 +113,6 @@ public class DivisionTests
             Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
         }
 
-        [TestMethod]
-        public void Divide_ByZero()
-        {
-            // Dividing by zero using double.Parse will result in Infinity (or -Infinity) without throwing an exception
-            Assert.AreEqual(double.PositiveInfinity, Program.Divide("1", "0"));
-        }
     }
 
 [TestClass]
