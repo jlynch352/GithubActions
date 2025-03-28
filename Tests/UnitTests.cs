@@ -56,3 +56,95 @@ public class MultiplicationTests
             Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
         }
     }
+ [TestClass]
+    public class SubtractionTests
+    {
+        [TestMethod]
+        public void Subtract_Valid()
+        {
+            Assert.AreEqual(-1, Program.Subtract("1", "2"));
+            Assert.AreEqual(1, Program.Subtract("3", "2"));
+            Assert.AreEqual(-2, Program.Subtract("5", "7"));
+        }
+
+        [TestMethod]
+        public void Subtract_Invalid()
+        {
+            Assert.ThrowsException<FormatException>(() => Program.Subtract("1", "a"));
+            Assert.ThrowsException<FormatException>(() => Program.Subtract("a", "1"));
+            Assert.ThrowsException<FormatException>(() => Program.Subtract("a", "a"));
+        }
+
+        [TestMethod]
+        public void Subtract_Null()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract("1", null));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract(null, "1"));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract(null, null));
+        }
+    }
+
+    [TestClass]
+    public class DivisionTests
+    {
+        [TestMethod]
+        public void Divide_Valid()
+        {
+            // For floating point comparisons, you can include a delta (tolerance)
+            Assert.AreEqual(0.5, Program.Divide("1", "2"), 1e-9);
+            Assert.AreEqual(1.5, Program.Divide("3", "2"), 1e-9);
+            Assert.AreEqual(0.7142857142857143, Program.Divide("5", "7"), 1e-9);
+        }
+
+        [TestMethod]
+        public void Divide_Invalid()
+        {
+            Assert.ThrowsException<FormatException>(() => Program.Divide("1", "a"));
+            Assert.ThrowsException<FormatException>(() => Program.Divide("a", "1"));
+            Assert.ThrowsException<FormatException>(() => Program.Divide("a", "a"));
+        }
+
+        [TestMethod]
+        public void Divide_Null()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Divide("1", null));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, "1"));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
+        }
+
+        [TestMethod]
+        public void Divide_ByZero()
+        {
+            // Dividing by zero using double.Parse will result in Infinity (or -Infinity) without throwing an exception
+            Assert.AreEqual(double.PositiveInfinity, Program.Divide("1", "0"));
+        }
+    }
+
+    [TestClass]
+    public class PowerTests
+    {
+        [TestMethod]
+        public void Power_Valid()
+        {
+            Assert.AreEqual(8, Program.Power("2", "3"));
+            Assert.AreEqual(9, Program.Power("3", "2"));
+            Assert.AreEqual(16, Program.Power("4", "2"));
+        }
+
+        [TestMethod]
+        public void Power_Invalid()
+        {
+            Assert.ThrowsException<FormatException>(() => Program.Power("1", "a"));
+            Assert.ThrowsException<FormatException>(() => Program.Power("a", "1"));
+            Assert.ThrowsException<FormatException>(() => Program.Power("a", "a"));
+        }
+
+        [TestMethod]
+        public void Power_Null()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Power("1", null));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, "1"));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, null));
+        }
+    }
+}
