@@ -27,3 +27,32 @@ public class Addition
 		Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, null));
 	}
 }
+
+
+[TestClass]
+public class MultiplicationTests
+    {
+	[TestMethod]
+	public void Multiply_Valid()
+        {
+            Assert.AreEqual(2, Program.Multiply("1", "2"));
+            Assert.AreEqual(6, Program.Multiply("3", "2"));
+            Assert.AreEqual(35, Program.Multiply("5", "7"));
+        }
+
+        [TestMethod]
+        public void Multiply_Invalid()
+        {
+            Assert.ThrowsException<FormatException>(() => Program.Multiply("1", "a"));
+            Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "1"));
+            Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "a"));
+        }
+
+        [TestMethod]
+        public void Multiply_Null()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply("1", null));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, "1"));
+            Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
+        }
+    }
